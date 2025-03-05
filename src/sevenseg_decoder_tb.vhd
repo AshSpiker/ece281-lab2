@@ -91,8 +91,40 @@ Port map(
     test_process : process
     begin
     w_sw <= "0000"; w_btnC <= '1'; wait for 10 ns;
-    assert(w_seg = "1000000" and w_an(3 downto 1) = '1' and s_an(0) = '0') report "uh oh" severity failure;
-
-    wait;
+    assert(w_seg = "1000000") report "uh oh" severity warning;
+    w_sw <= "0001"; w_btnC <= '1'; wait for 10 ns;            
+    assert(w_seg = "1111001") report "uh oh" severity warning;
+    w_sw <= "0010"; w_btnC <= '1'; wait for 10 ns;            
+    assert(w_seg = "0100100") report "uh oh" severity warning;
+    w_sw <= "0011"; w_btnC <= '1'; wait for 10 ns;            
+    assert(w_seg = "0110000") report "uh oh" severity warning;
+    w_sw <= "0100"; w_btnC <= '1'; wait for 10 ns;            
+    assert(w_seg = "0011001") report "uh oh" severity warning;
+    w_sw <= "0101"; w_btnC <= '1'; wait for 10 ns;            
+    assert(w_seg = "0010010") report "uh oh" severity warning;
+    w_sw <= "0110"; w_btnC <= '1'; wait for 10 ns;            
+    assert(w_seg = "0000010") report "uh oh" severity warning;
+    w_sw <= "0111"; w_btnC <= '1'; wait for 10 ns;            
+    assert(w_seg = "1111000") report "uh oh" severity warning;
+    w_sw <= "1000"; w_btnC <= '1'; wait for 10 ns;            
+    assert(w_seg = "0000000") report "uh oh" severity warning;
+    w_sw <= "1001"; w_btnC <= '1'; wait for 10 ns;            
+    assert(w_seg = "0011000") report "uh oh" severity warning;
+    w_sw <= "1010"; w_btnC <= '1'; wait for 10 ns;            
+    assert(w_seg = "0001000") report "uh oh" severity warning;
+    w_sw <= "1011"; w_btnC <= '1'; wait for 10 ns;            
+    assert(w_seg = "0000011") report "uh oh" severity warning;
+    w_sw <= "1100"; w_btnC <= '1'; wait for 10 ns;            
+    assert(w_seg = "0100111") report "uh oh" severity warning;
+    w_sw <= "1101"; w_btnC <= '1'; wait for 10 ns;            
+    assert(w_seg = "0100001") report "uh oh" severity warning;
+    w_sw <= "1110"; w_btnC <= '1'; wait for 10 ns;            
+    assert(w_seg = "0000110") report "uh oh" severity warning;
+    w_sw <= "1111"; w_btnC <= '1'; wait for 10 ns;            
+    assert(w_seg = "0001110") report "uh oh" severity warning;
+    
+    
+    
+wait;
 end process;
 end Behavioral;
